@@ -1,0 +1,334 @@
+/* =====================
+   VARIABLES 
+===================== */
+/* =====================
+   TYPOGRAPHY
+===================== */
+@font-face {
+  font-family: "Poppins";
+  src: url("../typography/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("../typography/Poppins-Bold.ttf") format("truetype");
+  font-weight: 600;
+}
+/* =====================
+   RESET & BASE STYLES
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+body {
+  background: radial-gradient(circle at center, #1a1a1a, #0a0a0a);
+  min-height: 100vh;
+  color: #f9f7f4;
+  overflow-x: hidden;
+  position: relative;
+  font-family: "Poppins";
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img,
+svg {
+  width: 100%;
+  display: block;
+}
+
+.highlight {
+  color: #226bbe;
+  font-weight: 600;
+}
+
+/* =====================
+   MIXINS
+===================== */
+/* =====================
+   BUTTONS
+===================== */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0.7rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn .btn-icon {
+  max-width: 20px;
+}
+.btn:hover {
+  transform: scale(0.97);
+}
+@media screen and (min-width: 768px) {
+  .btn {
+    max-width: 250px;
+  }
+}
+.btn.btn-primary {
+  background-color: #226bbe;
+  color: #f9f7f4;
+  border: solid 2px #226bbe;
+  box-shadow: 0px 10px 20px rgba(62, 44, 37, 0.1);
+}
+.btn.ghost-btn {
+  background-color: transparent;
+  border: solid #226bbe 2px;
+  color: #226bbe;
+}
+.btn.ghost-btn:hover {
+  background-color: #226bbe;
+  border-color: #226bbe;
+  color: #f9f7f4;
+}
+
+/* =====================
+   LAYOUT UTILITIES
+===================== */
+.body-container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr;
+}
+
+section {
+  padding: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .section-header {
+    text-align: left;
+  }
+}
+.section-header .section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0a0a0a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-family: "PlayfairDisplay";
+}
+@media screen and (min-width: 768px) {
+  .section-header .section-title {
+    font-size: 2.5rem;
+  }
+}
+.section-header .section-description {
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  max-width: 900px;
+  opacity: 0.8;
+  color: #a48f94;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-hide {
+    display: none;
+  }
+}
+
+.collector-app {
+  width: 100%;
+  max-width: 500px;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+.collector-app .user-greeting {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+.collector-app .user-greeting .title-display {
+  font-size: 1.4rem;
+  color: #888888;
+  display: flex;
+  flex-direction: column;
+}
+.collector-app .user-greeting .title-display .collector-name {
+  color: #f9f7f4;
+  border-bottom: 1px dashed #226bbe;
+}
+.collector-app .user-greeting .btn-send {
+  width: auto;
+  max-width: none;
+  padding: 10px 15px;
+  border: 1px solid rgba(34, 107, 190, 0.3);
+  color: #226bbe;
+  border-radius: 100dvh;
+  background: linear-gradient(to right bottom, rgba(34, 107, 190, 0.4), rgba(34, 107, 190, 0.12));
+}
+.collector-app .summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 25px;
+}
+.collector-app .summary-grid .summary-card {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 1.5rem;
+  padding: 1rem 1.5rem;
+}
+.collector-app .summary-grid .summary-card p {
+  color: #888888;
+  font-size: 1.2rem;
+}
+.collector-app .summary-grid .summary-card h3 {
+  font-size: 1.6rem;
+  color: #f9f7f4;
+}
+.collector-app .summary-grid .summary-card.total-card {
+  grid-column: span 2;
+}
+.collector-app .form-card {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 1.5rem;
+  margin-bottom: 25px;
+}
+.collector-app .form-card .form-header {
+  margin-bottom: 25px;
+}
+.collector-app .form-card .form-section-title {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.collector-app .form-card .form-input {
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  padding: 0.6rem 1rem;
+  font-size: 1.1rem;
+  width: 100%;
+  border-radius: 8px;
+}
+.collector-app .form-card .bet-section {
+  margin-bottom: 25px;
+}
+.collector-app .form-card .bet-section .inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.collector-app .form-card .bet-section .btn-add-bet {
+  width: 100%;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+  color: #f9f7f4;
+}
+.collector-app .form-card .btn-main {
+  margin-top: 10px;
+  max-width: none;
+}
+.collector-app .list-container {
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 1.5rem;
+  padding: 10px 25px;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+.collector-app .list-container .list-item {
+  padding: 20px 0;
+}
+.collector-app .list-container .list-item .item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.collector-app .list-container .list-item .item-header .client-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.collector-app .list-container .list-item .item-header .client-info strong {
+  font-size: 1.2rem;
+  color: #f9f7f4;
+}
+.collector-app .list-container .list-item .item-header .client-info .client-bet-time {
+  color: #888888;
+}
+.collector-app .list-container .list-item .item-header .btn-delete {
+  background: none;
+  width: 30px;
+  cursor: pointer;
+}
+.collector-app .list-container .list-item .item-header .btn-delete:hover {
+  transform: scale(1.1);
+}
+.collector-app .list-container .list-item .item-content .bets-container {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.collector-app .list-container .list-item .item-content .bets-container span {
+  color: #888888;
+  min-width: 65px;
+}
+.collector-app .list-container .list-item .item-content .bets-container .bet-item {
+  background: rgba(34, 107, 190, 0.12);
+  border: 1px solid rgba(34, 107, 190, 0.2);
+  padding: 4px 10px;
+  border-radius: 8px;
+  color: white;
+}
+.collector-app .list-container .list-item .item-content .bets-container .bet-item strong {
+  color: #226bbe;
+  font-weight: 600;
+  margin-left: 5px;
+}
+.collector-app .list-container .list-divider {
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin: 0 auto;
+}
+.collector-app .btn-clear {
+  background-color: #e74c3c;
+  color: #f9f7f4;
+  max-width: none;
+}
+
+/*# sourceMappingURL=style.css.map */

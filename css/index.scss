@@ -1,0 +1,204 @@
+@import "reset";
+// @import "footer";
+
+.collector-app {
+	width: 100%;
+	max-width: 500px;
+	padding: 1.5rem;
+	margin: 0 auto;
+
+	.user-greeting {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 30px;
+
+		.title-display {
+			font-size: 1.4rem;
+			color: $text-dim;
+			display: flex;
+			flex-direction: column;
+
+			.collector-name {
+				color: $light-color;
+				border-bottom: 1px dashed $primary-color;
+			}
+		}
+
+		.btn-send {
+			width: auto;
+			max-width: none;
+			padding: 10px 15px;
+			border: 1px solid rgba($primary-color, 0.3);
+			color: $primary-color;
+			border-radius: $border-radius-rounded;
+			background: linear-gradient(
+				to right bottom,
+				rgba($primary-color, 0.4),
+				rgba($primary-color, 0.12)
+			);
+		}
+	}
+
+	.summary-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
+		margin-bottom: 25px;
+
+		.summary-card {
+			@include glass-card;
+			padding: 1rem 1.5rem;
+
+			p {
+				color: $text-dim;
+				font-size: 1.2rem;
+			}
+			h3 {
+				font-size: 1.6rem;
+				color: $light-color;
+			}
+
+			&.total-card {
+				grid-column: span 2;
+			}
+		}
+	}
+
+	.form-card {
+		@include glass-card;
+		margin-bottom: 25px;
+
+		.form-header {
+			margin-bottom: 25px;
+		}
+
+		.form-section-title {
+			font-size: 1.2rem;
+			margin-bottom: 5px;
+		}
+
+		.form-input {
+			background: rgba(0, 0, 0, 0.3);
+			color: white;
+			padding: 0.6rem 1rem;
+			font-size: 1.1rem;
+			width: 100%;
+			border-radius: $border-radius-general;
+		}
+
+		.bet-section {
+			margin-bottom: 25px;
+
+			.inputs-row {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 10px;
+				margin-bottom: 12px;
+			}
+
+			.btn-add-bet {
+				width: 100%;
+				max-width: 100%;
+				background: rgba(255, 255, 255, 0.05);
+				font-size: 0.9rem;
+				color: $light-color;
+			}
+		}
+
+		.btn-main {
+			margin-top: 10px;
+			max-width: none;
+		}
+	}
+
+	.list-container {
+		@include glass-card;
+		padding: 10px 25px;
+		font-size: 0.9rem;
+		margin-bottom: 25px;
+
+		.list-item {
+			padding: 20px 0;
+
+			.item-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				margin-bottom: 12px;
+
+				.client-info {
+					display: flex;
+					flex-direction: column;
+					gap: 2px;
+
+					strong {
+						font-size: 1.2rem;
+						color: $light-color;
+					}
+
+					.client-bet-time {
+						color: $text-dim;
+					}
+				}
+
+				.btn-delete {
+					background: none;
+					width: 30px;
+					cursor: pointer;
+
+					&:hover {
+						transform: scale(1.1);
+					}
+				}
+			}
+
+			.item-content {
+				.bets-container {
+					margin-bottom: 10px;
+					display: flex;
+					flex-wrap: wrap;
+					gap: 8px;
+					align-items: center;
+
+					span {
+						color: $text-dim;
+						min-width: 65px;
+					}
+
+					.bet-item {
+						background: rgba($primary-color, 0.12);
+						border: 1px solid rgba($primary-color, 0.2);
+						padding: 4px 10px;
+						border-radius: $border-radius-general;
+						color: white;
+
+						strong {
+							color: $primary-color;
+							font-weight: 600;
+							margin-left: 5px;
+						}
+					}
+				}
+			}
+		}
+
+		.list-divider {
+			width: 80%;
+			height: 1px;
+			background: linear-gradient(
+				to right,
+				transparent,
+				rgba(255, 255, 255, 0.1),
+				transparent
+			);
+			margin: 0 auto;
+		}
+	}
+
+	.btn-clear {
+		background-color: #e74c3c;
+		color: $light-color;
+		max-width: none;
+	}
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta property="og:title" content="Collector" />
+		<meta property="og:description" content="lorem ipsum" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="./assets/opengraph.png" />
+		<link rel="icon" type="image/png" href="./assets/logo.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="./assets/logo.png" />
+		<link rel="stylesheet" href="./css/style.css" />
+
+		<link rel="manifest" href="./manifest.json" />
+		<meta name="theme-color" content="#0a0a0a" />
+
+		<title>Collector</title>
+	</head>
+	<body id="body">
+		<main class="collector-app">
+			<header class="user-greeting">
+				<h2 class="title-display">
+					Recolector
+					<span
+						contenteditable="true"
+						class="collector-name"
+						id="collector-name"
+						>Nombre</span
+					>
+				</h2>
+				<button class="btn btn-send" id="btn-send">
+					<img
+						src="./assets/icons/paper-plane-tilt-fill.svg"
+						class="btn-icon"
+						alt=""
+					/>
+					Enviar
+				</button>
+			</header>
+
+			<div class="summary-grid">
+				<div class="summary-card">
+					<p>Fijos</p>
+					<h3 id="total-fixed">$0</h3>
+				</div>
+				<div class="summary-card">
+					<p>Corridos</p>
+					<h3 id="total-running">$0</h3>
+				</div>
+				<div class="summary-card total-card">
+					<p>Total</p>
+					<h3 id="total-combined">$0</h3>
+				</div>
+			</div>
+
+			<div class="form-card">
+				<div class="form-header">
+					<h4 class="form-section-title">Añadir comprador</h4>
+					<input
+						type="text"
+						placeholder="Nombre del cliente"
+						class="form-input"
+						id="client-name-input"
+					/>
+				</div>
+
+				<div class="bet-section" id="fixed-bets-section">
+					<div class="input-group">
+						<h4 class="form-section-title">Números fijos</h4>
+
+						<div class="inputs-row">
+							<input class="form-input" type="number" placeholder="Número" />
+							<input class="form-input" type="number" placeholder="Monto $" />
+						</div>
+					</div>
+					<button class="btn btn-add-bet">
+						<img src="./assets/icons/plus-bold.svg" class="btn-icon" alt="" />
+						Agregar
+					</button>
+				</div>
+
+				<div class="bet-section" id="running-bets-section">
+					<div class="input-group">
+						<h4 class="form-section-title">Números corridos</h4>
+						<div class="inputs-row">
+							<input class="form-input" type="number" placeholder="Número" />
+							<input class="form-input" type="number" placeholder="Monto $" />
+						</div>
+					</div>
+					<button class="btn btn-add-bet">
+						<img src="./assets/icons/plus-bold.svg" class="btn-icon" alt="" />
+						Agregar
+					</button>
+				</div>
+
+				<button class="btn btn-primary btn-main" id="btn-main">Agregar</button>
+			</div>
+
+			<div class="list-container">
+				<!-- Injected by JS -->
+			</div>
+
+			<button class="btn btn-clear" id="btn-clear">Limpiar datos</button>
+		</main>
+
+		<!-- <footer>
+			<div class="footer-content">
+				<nav class="footer-links">
+					<a href="https://cesarsullen.github.io">About the Developer</a>
+					<a href="https://cesarsullen.github.io/views/pwa-install"
+						>How to Install?</a
+					>
+					<a href="https://cesarsullen.github.io/views/donations">Support Me</a>
+				</nav>
+			</div>
+		</footer> -->
+		<script src="js/main.js"></script>
+	</body>
+</html>

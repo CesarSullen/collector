@@ -1,0 +1,41 @@
+{
+	"short_name": "Collector",
+	"name": "Collector - Gestión de Apuestas",
+	"icons": [
+		{
+			"src": "./assets/logo.png",
+			"type": "image/png",
+			"sizes": "1024x1024",
+			"purpose": "any"
+		}
+	],
+	"start_url": "./index.html",
+	"background_color": "#0a0a0a",
+	"display": "standalone",
+	"scope": "./",
+	"theme_color": "#0a0a0a",
+	"description": "Herramienta para recolectores de apuestas.",
+	"screenshots": [
+		{
+			"src": "./assets/screenshots/mobile-1.png",
+			"sizes": "750x1334",
+			"type": "image/png",
+			"form_factor": "narrow",
+			"label": "Vista móvil 1"
+		},
+		{
+			"src": "./assets/screenshots/mobile-2.png",
+			"sizes": "750x1334",
+			"type": "image/png",
+			"form_factor": "narrow",
+			"label": "Vista móvil 2"
+		},
+		{
+			"src": "./assets/screenshots/desktop-1.png",
+			"sizes": "2048x2732",
+			"type": "image/png",
+			"form_factor": "wide",
+			"label": "Vista desktop"
+		}
+	]
+}
