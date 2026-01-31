@@ -20,18 +20,18 @@
 			flex-direction: column;
 
 			.collector-name {
-				color: $light-color;
+				color: $primary-color;
 				border-bottom: 1px dashed $primary-color;
 			}
 		}
 
 		.btn-send {
-			width: auto;
-			max-width: none;
 			padding: 10px 15px;
 			border: 1px solid rgba($primary-color, 0.3);
 			color: $primary-color;
 			border-radius: $border-radius-rounded;
+			width: auto;
+			max-width: none;
 			background: linear-gradient(
 				to right bottom,
 				rgba($primary-color, 0.4),
@@ -48,7 +48,6 @@
 
 		.summary-card {
 			@include glass-card;
-			padding: 1rem 1.5rem;
 
 			p {
 				color: $text-dim;
@@ -61,6 +60,10 @@
 
 			&.total-card {
 				grid-column: span 2;
+				border-color: rgba($primary-color, 0.3);
+				h3 {
+					color: $primary-color;
+				}
 			}
 		}
 	}
@@ -197,8 +200,9 @@
 	}
 
 	.btn-clear {
-		background-color: #e74c3c;
-		color: $light-color;
+		background: transparent;
+		border: 1px solid #e74c3c;
+		color: #e74c3c;
 		max-width: none;
 	}
 }

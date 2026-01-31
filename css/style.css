@@ -174,16 +174,16 @@ section {
   flex-direction: column;
 }
 .collector-app .user-greeting .title-display .collector-name {
-  color: #f9f7f4;
+  color: #226bbe;
   border-bottom: 1px dashed #226bbe;
 }
 .collector-app .user-greeting .btn-send {
-  width: auto;
-  max-width: none;
   padding: 10px 15px;
   border: 1px solid rgba(34, 107, 190, 0.3);
   color: #226bbe;
   border-radius: 100dvh;
+  width: auto;
+  max-width: none;
   background: linear-gradient(to right bottom, rgba(34, 107, 190, 0.4), rgba(34, 107, 190, 0.12));
 }
 .collector-app .summary-grid {
@@ -199,7 +199,6 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 18px;
   padding: 1.5rem;
-  padding: 1rem 1.5rem;
 }
 .collector-app .summary-grid .summary-card p {
   color: #888888;
@@ -211,6 +210,10 @@ section {
 }
 .collector-app .summary-grid .summary-card.total-card {
   grid-column: span 2;
+  border-color: rgba(34, 107, 190, 0.3);
+}
+.collector-app .summary-grid .summary-card.total-card h3 {
+  color: #226bbe;
 }
 .collector-app .form-card {
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
@@ -326,8 +329,9 @@ section {
   margin: 0 auto;
 }
 .collector-app .btn-clear {
-  background-color: #e74c3c;
-  color: #f9f7f4;
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
   max-width: none;
 }
 
