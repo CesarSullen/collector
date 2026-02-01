@@ -257,6 +257,68 @@ function updateSummary() {
 	).toLocaleString()}`;
 }
 
+//	Functionality for send-btn
+const sendDataBtn = document.getElementById("btn-send");
+
+sendDataBtn.addEventListener("click", async () => {
+	if (allBets.length === 0) {
+		alert("No hay apuestas para enviar.");
+		return;
+	}
+
+	const collectorName =
+		collectorNameSpan.textContent.trim() || "recolector_desconocido";
+	const dateStr = new Date().toISOString().slice(0, 10);
+	const exportData = {
+		meta: {
+			collector: collectorName,
+			date: new Date().toLocaleString(),
+			totalAmount: totalCombinedEl.textContent,
+		},
+		data: allBets,
+	};
+
+	//	Setting the file
+	const jsonString = JSON.stringify(exportData, null, 2);
+	const fileName = `lista_${collectorName}_${dateStr}.json`;
+	const blob = new Blob([jsonString], { type: "application/json" });
+
+	// Fallback: Download
+	const downloadFile = () => {
+		const url = URL.createObjectURL(blob);
+		const a = document.createElement("a");
+		a.href = url;
+		a.download = fileName;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+	};
+
+	// Web Share API
+	if (navigator.share && navigator.canShare) {
+		const file = new File([blob], fileName, { type: "application/json" });
+		const shareData = {
+			files: [file],
+			title: `Lista de ${collectorName}`,
+			text: `Archivo de apuestas - ${dateStr}`,
+		};
+
+		if (navigator.canShare(shareData)) {
+			try {
+				await navigator.share(shareData);
+				return;
+			} catch (err) {
+				if (err.name !== "AbortError") {
+					downloadFile();
+				}
+				return;
+			}
+		}
+	}
+	downloadFile();
+});
+
 //	Save and Load data
 const collectorNameSpan = document.getElementById("collector-name");
 
@@ -287,51 +349,6 @@ function loadFromLocalStorage() {
 }
 
 loadFromLocalStorage();
-
-//	Functionality for send-btn
-const sendDataBtn = document.getElementById("btn-send");
-
-sendDataBtn.addEventListener("click", async () => {
-	if (allBets.length === 0) {
-		alert("No hay apuestas para enviar.");
-		return;
-	}
-
-	const collectorName =
-		collectorNameSpan.textContent.trim() || "recolector_desconocido";
-	const dateStr = new Date().toISOString().slice(0, 10);
-	const exportData = {
-		meta: {
-			collector: collectorName,
-			date: new Date().toLocaleString(),
-			totalAmount: totalCombinedEl.textContent,
-		},
-		data: allBets,
-	};
-
-	//	Setting the file
-	const jsonString = JSON.stringify(exportData, null, 2);
-	const blob = new Blob([jsonString], { type: "application/json" });
-	const fileName = `lista_${collectorName}_${dateStr}.json`;
-	const file = new File([blob], fileName, { type: "application/json" });
-
-	// Web Share API
-	if (navigator.canShare && navigator.canShare({ files: [file] })) {
-		await navigator.share({
-			files: [file],
-			title: `Lista de ${collectorName}`,
-			text: `Archivo de apuestas - ${dateStr}`,
-		});
-	} else {
-		// Fallback: Download
-		const url = URL.createObjectURL(blob);
-		const a = document.createElement("a");
-		a.href = url;
-		a.download = fileName;
-		a.click();
-		URL.revokeObjectURL(url);
-	}
-});
 
 //	Service Worker
 if ("serviceWorker" in navigator) {
