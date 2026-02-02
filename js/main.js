@@ -273,6 +273,8 @@ sendDataBtn.addEventListener("click", async () => {
 		meta: {
 			collector: collectorName,
 			date: new Date().toLocaleString(),
+			totalFixed: totalFixedEl.textContent,
+			totalRunning: totalRunningEl.textContent,
 			totalAmount: totalCombinedEl.textContent,
 		},
 		data: allBets,

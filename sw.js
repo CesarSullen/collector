@@ -1,4 +1,4 @@
-const CACHE_NAME = "collector-cache-v1.2";
+const CACHE_NAME = "collector-cache-v1.3";
 const STATIC_ASSETS = [
 	//  Page
 	"./",
